@@ -1,13 +1,10 @@
 <template>
-    <v-container>
-        <v-data-table
-        dense
-        :headers="headers"
-        :items="tracks"
-        item-key="name"
-        class="elevation-1"
-        ></v-data-table>
-    </v-container>
+    <v-card flat >
+        <v-card-title>
+            <v-text-field hide-details single-line v-model="search" label='Search' max-width="10" ></v-text-field>
+        </v-card-title>
+        <v-data-table :headers="headers" :items="tracks" item-key="name" class="elevation-1" dark></v-data-table>
+    </v-card>
 </template>
 
 <script>
@@ -16,6 +13,7 @@ export default {
     data(){
         return {
             //defining the data headers
+            search: "",
             headers: [
                 {
                     text: 'Title',
@@ -46,7 +44,7 @@ export default {
     computed:{
         tracks(){
             // return the state.
-            return this.$store.state.tracks
+            return this.$store.state.tracks.filter(track => track.title.includes(this.search))
         }
     },
     mounted(){

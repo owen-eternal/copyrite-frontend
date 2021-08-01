@@ -6,11 +6,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    search: "",
     tracks: [],
   },
   mutations: {
     changeTracks(state, tracks){
-      state.tracks = tracks
+      state.tracks = tracks.filter(track => track.title.includes(state.search))
     }
   },
   actions: {

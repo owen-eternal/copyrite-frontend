@@ -1,14 +1,20 @@
 <template>
-  <TableData />
+  <div>
+    <Navbar/>
+    <Table/>
+  </div>
+  
 </template>
 
 <script>
-  import TableData from '../components/TableData.vue'
+import Table from '../components/Table.vue'
+import Navbar from "../components/Navbar.vue"
 
   export default {
     name: 'Home',
     components: {
-      TableData,
+      Table,
+      Navbar,
     },
   }
 </script>

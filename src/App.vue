@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-main>
+    <sidebar/>
+    <v-main>   
       <router-view/>
     </v-main>
   </v-app>
@@ -8,11 +9,12 @@
 
 <script>
 
+import Sidebar from "./components/Sidebar.vue"
+
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  }),
+  components:{
+    Sidebar,
+  }
 };
 </script>

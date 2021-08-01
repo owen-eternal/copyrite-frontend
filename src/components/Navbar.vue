@@ -1,7 +1,7 @@
 <template>
     <v-card color="grey lighten-3" flat height="150px" tile>
         <v-toolbar dense dark>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon @click="$store.dispatch('ToggleSideBar')"></v-app-bar-nav-icon>
             <v-toolbar-title>Coprite</v-toolbar-title>
             <v-spacer></v-spacer>
         </v-toolbar>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-    name: "Navbar"
+    name: "Navbar",
 }
 </script>
 

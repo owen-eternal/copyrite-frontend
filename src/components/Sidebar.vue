@@ -1,9 +1,9 @@
 <template>
-    <v-navigation-drawer dark app>
+    <v-navigation-drawer v-model="$store.state.sidebar" dark app>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
-            Registered Songs
+            Artist Profile
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -12,6 +12,9 @@
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.text">
+           <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>{{ item.text }}</v-list-item-title>
           </v-list-item-content>
@@ -26,9 +29,8 @@ export default {
     data(){
       return {
         items:[
-          {text: "edit"},
-          {text: "profile"},
-          {text: "data"}
+          {text: "Dashboard", icon: "mdi-view-dashboard"},
+          {text: "Edit Profile", icon: "mdi-wrench"}, 
         ]
       }
     }

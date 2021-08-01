@@ -1,7 +1,7 @@
 <template>
     <v-card flat >
         <v-card-title>
-            <v-text-field hide-details single-line v-model="search" label='Search' max-width="10" ></v-text-field>
+            <v-text-field hide-details single-line v-model="search" label='Search' max-width="10"  append-icon="mdi-magnify"></v-text-field>
         </v-card-title>
         <v-data-table :headers="headers" :items="tracks" item-key="name" class="elevation-1" dark></v-data-table>
     </v-card>

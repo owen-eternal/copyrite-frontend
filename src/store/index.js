@@ -6,12 +6,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    sidebar:false,
     search: "",
     tracks: [],
   },
   mutations: {
-    changeTracks(state, tracks){
+    CHANGESONGS(state, tracks){
       state.tracks = tracks.filter(track => track.title.includes(state.search))
+    },
+    TOGGLESIDEBAR(state){
+      state.sidebar = ! state.sidebar 
+      console.log(state.sidebar)
     }
   },
   actions: {
@@ -19,8 +24,11 @@ export default new Vuex.Store({
       axios
         .get('http://localhost:8000/api/v1/tracks/')
         .then(resp => {
-          commit('changeTracks', resp.data)
+          commit('CHANGESONGS', resp.data)
         })
+    },
+    ToggleSideBar({commit}){
+      commit('TOGGLESIDEBAR')
     }
   },
   modules: {
